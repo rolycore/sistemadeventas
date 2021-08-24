@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:fragment="html_head" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Punto de venta con Spring Boot. Control de inventario y ventas ">
+    <meta name="author" content="ShalomSolutionTech">
+    <title>Sistema de ventas Spring Boot</title>
+    <!-- Cargar el CSS de Boostrap-->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/fa.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<nav th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml"
+     class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" target="_blank" href="https://beacons.page/shalomsotuiontech">Shalom Solution Tech</a>
+    <h3 th:inline = "text">Bienvenido [[${#httpServletRequest.remoteUser}]] </h3>
+    <form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout" />
+	</form>
+	
+    <button class="navbar-toggler" type="button" id="botonMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav mr-auto">
+           
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/vender/}">Vender</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/productos/mostrar}">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/ventas/}">Ventas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Home</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main  layout:fragment="contenido" role="main" class="container"></main>
+
+<footer th:fragment="pie" class="px-2 py-2 fixed-bottom bg-dark" xmlns:th="http://www.w3.org/1999/xhtml">
+    <span class="text-muted">Sistema de ventas Spring Boot
+        <i class="fa fa-code"></i>
+        con
+        <i class="fa fa-heart"></i>
+        por
+        <a class="text-white" href="https://instagram.com/shalomsolutiontech">Rolando Salinas</a>
+    </span>
+    <script type="text/javascript">
+        // Tomado de https://github.com/parzibyte/cotizaciones_web/blob/master/js/cotizaciones.js#L2
+        document.addEventListener("DOMContentLoaded", () => {
+            const menu = document.querySelector("#menu"),
+                botonMenu = document.querySelector("#botonMenu");
+            if (menu) {
+                botonMenu.addEventListener("click", () => menu.classList.toggle("show"));
+            }
+        });
+    </script>
+</footer>
+</body>
+</html>

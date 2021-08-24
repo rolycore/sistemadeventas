@@ -1,0 +1,21 @@
+<!doctype html>
+<!--
+    Programado por Rolando Salinas
+
+  
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" layout:decorate="fragments">
+<head th:replace="fragments :: html_head" />
+<body>
+
+<div align="center">
+
+
+<h1>Bienvenidos a la pagina de Inicio</h1>
+<h2>Sistema de Ventas con Spring Boot</h2>
+<nav th:replace="fragments :: navbar"></nav>
+<h3>Estos son nuestros servicios y productos</h3>
+
+<footer th:replace="fragments :: pie"></footer>
+</body>
+</html>
