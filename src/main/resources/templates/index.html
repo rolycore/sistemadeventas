@@ -14,8 +14,10 @@
 <h1>Bienvenidos a la pagina de Inicio</h1>
 <h2>Sistema de Ventas con Spring Boot</h2>
 <nav th:replace="fragments :: navbar"></nav>
-<h3>Estos son nuestros servicios y productos</h3>
-
+<h3><a th:href="@{/users}">Lista de Usuarios</a></h3>
+<h3><a th:href="@{/register}">Registrate</a></h3>
+<h3><a th:href="@{/login}">Login</a></h3>
+</div>
 <footer th:replace="fragments :: pie"></footer>
 </body>
 </html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" layout:decorate="fragments">
+
+	<head th:replace="fragments :: html_head" />
+
+<body>
+<nav th:replace="fragments :: navbar"></nav>
+	<div class="container text-center">
+		<h3>You have signed up successfully!</h3>
+		<h4><a th:href="@{/login}">Click here to Login</a></h4>
+	</div>
+	<footer th:replace="fragments :: pie"></footer>
+</body>
+</html>

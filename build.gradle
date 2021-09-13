@@ -21,9 +21,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	compile 'org.postgresql:postgresql'
-	//runtimeOnly 'mysql:mysql-connector-java'
-	//implementation('org.postgresql:postgresql')
+	//MySql
+	runtimeOnly 'mysql:mysql-connector-java'
+	
+	 //postgresql
+    //runtime('org.postgresql:postgresql')
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 

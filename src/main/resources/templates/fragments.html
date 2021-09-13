@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="es"  xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="fragments"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:fragment="html_head" xmlns:th="http://www.w3.org/1999/xhtml">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +42,13 @@
                 <a class="nav-link" th:href="@{/}">Home</a>
             </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" th:href="@{/users}">Lista de Usuarios</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/register}">Registrase</a>>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}">Login</a>
             </li>
         </ul>
     </div>

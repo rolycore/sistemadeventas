@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" layout:decorate="fragments">
+
+<head th:replace="fragments :: html_head" />
+
+<body>
+<div class="container-fluid text-center">
+<nav th:replace="fragments :: navbar"></nav>
+	<div>
+		<form th:action="@{/logout}" method="post">
+			
+			<p>
+				Bienvenido <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+			</p>
+			<input type="submit" value="Sign Out" />
+		</form>
+	</div>
+	<div>
+		<h1>Lista de Usuarios</h1>
+	</div>
+	  <a class="btn btn-success mb-2" th:href="@{/register}" sec:authorize="hasRole('ROLE_ADMIN')">Agregar Usuario</a>
+	 <div class="table-responsive">
+		<table class="table table-bordered">
+			<thead >
+				<tr>
+					<th>User ID</th>
+					<th>E-mail</th>
+					<th>Usuario</th>
+					<th>Nombre del Usuario</th>
+					<th>Apellido del Usuario</th>
+					<th>Rol del Usuario</th>
+					<th>Contraseña</th>
+					<th>Activo/inactivo</th>
+					<th>Editar</th>
+                    <th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user: ${listUsers}">
+					<td th:text="${user.id}">User ID</td>
+					<td th:text="${user.email}">E-mail</td>
+					<td th:text="${user.username}">Usuario</td>
+					<td th:text="${user.firstName}">Nombre del Usuario</td>
+					<td th:text="${user.lastName}">Apellido del Usuario</td>
+					<td th:text="${user.role}">Role</td>
+					<td th:text="${user.password}">Password</td>
+					<td th:text="${user.enabled}">Usuario activo</td>
+				<td>
+                        <a class="btn btn-warning" th:href="@{/editar/} + ${user.id}" sec:authorize="hasRole('ROLE_ADMIN')">Editar <i
+                                class="fa fa-edit"></i></a>
+                    </td>
+                       <td sec:authorize="hasRole('ROLE_ADMIN')">
+                        <form th:action="@{/eliminar}" method="post">
+                            <input type="hidden" name="id" th:value="${user.id}"/>
+                            <button type="submit" class="btn btn-danger">Eliminar <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<footer th:replace="fragments :: pie"></footer>
+</body>
+</html>
